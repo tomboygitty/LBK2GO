@@ -2,13 +2,13 @@
   "development": {
     "username": "team",
     "password": "awesome",
-    "database": "project2",
+    "database": "lbk2go_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "team",
+    "password": "awesome",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
