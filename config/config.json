@@ -9,7 +9,7 @@
   "test": {
     "username": "team",
     "password": "awesome",
-    "database": "testdb",
+    "database": "lbk2go_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
