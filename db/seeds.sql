@@ -1,7 +1,7 @@
 -- This seed file is used to create the table for storing the Songs with their information
 USE lbk2go_db;
 
-INSERT INTO songs (song, artist, genre, music_key, createdAt, updatedAt)
+INSERT INTO songs (song, artist, genre, music_key, created_at, updated_at)
 VALUES ('1999','Prince','eighties','E',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('867-5309 Jenny','Tommy Tutone','eighties','F#',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('9 to 5','Dolly Parton','country','F#',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
