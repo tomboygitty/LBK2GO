@@ -14,7 +14,7 @@ module.exports = function(app) {
   // Load Song page and pass in an Song by id
   app.get("/Song/:id", function(req, res) {
     db.Song.findOne({ where: { id: req.params.id } }).then(function(dbSong) {
-      res.render("Song", {
+      res.render("song", {
         Song: dbSong
       });
     });
