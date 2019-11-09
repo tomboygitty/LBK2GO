@@ -9,7 +9,6 @@ module.exports = function(sequelize, DataTypes) {
       music_key: DataTypes.STRING
     },
     {
-      timestamps: false,
       underscored: true
     }
   );
