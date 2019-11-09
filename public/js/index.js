@@ -45,6 +45,8 @@ var refreshExamples = function() {
         })
         .append($a);
 
+        console.log("test");
+
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
         .text("ｘ");
