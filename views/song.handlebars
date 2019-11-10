@@ -3,14 +3,15 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Songs</h5>
-          <p>
-            <strong>ID</strong>: {{Song.id}}</p>
-          <p>
-          <p>
-            <strong>Title</strong>: {{Song.song}}</p>
-          <p>
-            <strong>Artist:</strong> {{Song.artist}}</p>
+          <h5 class="card-title">Search Results</h5>
+          <ul id="example-list" class="list-group">
+          {{#each Songs}}
+          <li data-id="{{this.id}}" class="list-group-item">
+          <button id="{{this.id}}" class="btn btn-primary float-left select">Select</button>
+          <p><strong>{{this.song}}</strong> by <strong>{{this.artist}}</strong>, Genre: {{this.genre}}, Musical Key: {{this.music_key}}</p>
+          </li>
+          {{/each}}
+        </ul>
             <a href="/">← Back To Home</a>
         </div>
       </div>
