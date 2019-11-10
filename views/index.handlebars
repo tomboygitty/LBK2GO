@@ -1,33 +1,23 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+      <div class="col-8 offset-2 text-center">
+        <img src="../images/LBK2GO_LOGO.png">
+        <h1>Welcome!</h1><br>
+        <h2>Pick a Search!</h2><br>
+        <form action="title">
+          <button class="btn btn-lg btn-primary search" id="title-search">Search by Song Title</button>
+        </form><br>
+        <form action="artist">
+          <button class="btn btn-lg btn-primary search" id="artist-search">Search by Artist</button>
+        </form><br>
+        <form action="genre">
+          <button class="btn btn-lg btn-primary search" id="genre-search">Search by Genre</button>
+        </form><br>
+        <form action="key">
+          <button class="btn btn-lg btn-primary search" id="key-search">Search by Musical Key</button>
         </form>
-        <h3>Songs:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each Songs}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="Song/{{this.id}}">{{this.song}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
       </div>
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
