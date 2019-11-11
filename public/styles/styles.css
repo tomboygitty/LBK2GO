@@ -18,3 +18,17 @@ input[type="text"], textarea, .form-group {
 .select{
   margin-right: 10px;
 }
+
+#queue-area {
+  background: white;
+  color: black;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  line-height: 3;
+  text-align: left;
+}
+
+.queueDelete {
+  float: right; 
+}
+

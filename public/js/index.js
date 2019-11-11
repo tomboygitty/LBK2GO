@@ -62,3 +62,22 @@ var handleSearch = function(event) {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleSearch);
+
+$.get("/api/songs", function(data) {
+
+  if (data.length !== 0) {
+
+    for (var i = 0; i < data.length; i++) {
+
+      var row = $("<div>");
+      row.addClass("queueList");
+
+      row.append("<p>" + "<b>Song: </b>" + data[i].song + " | <b>Artist: </b>" + data[i].artist + "<button class='queueDelete btn btn-secondary'>Delete</button><hr>");
+
+      $("#queue-area").prepend(row);
+
+    }
+
+  }
+
+});
