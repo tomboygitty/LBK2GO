@@ -9,3 +9,14 @@ VALUES ('1999','Prince','eighties','E',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('99 Problems','Jay-Z','rap','E',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('99 Red Balloons','Nena','new wave','E',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('A Hard Day''s Night','The Beatles','oldies','C',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+
+INSERT INTO queues (name, song_id, created_at, updated_at)
+VALUES ('joe', 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('peter', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('mary', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('toto', 7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('david', 6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+('wendy', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+UPDATE queues SET queue_state="Completed" WHERE id='1';
+UPDATE queues SET queue_state="Active" WHERE id='2';

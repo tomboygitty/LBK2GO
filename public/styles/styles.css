@@ -18,3 +18,7 @@ input[type="text"], textarea, .form-group {
 .select{
   margin-right: 10px;
 }
+
+#key-search {
+  margin-bottom: 20px;
+}
