@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Current Queue</h5>
+          <ul id="queue-list" class="list-group">
+          {{#each Queues}}
+            <li data-id="{{this.id}}" class="list-group-item">
+              {{!-- <p><strong>{{this.song}}</strong> by <strong>{{this.artist}}</strong>, Genre: {{this.genre}}, Musical Key: {{this.music_key}}</p> --}}
+              {{this.id}}. {{this.name}} - {{this.queue_state}}
+            </li>
+          {{/each}}
+        </ul>
+            <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
