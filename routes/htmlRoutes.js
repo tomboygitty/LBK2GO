@@ -44,6 +44,28 @@ module.exports = function(app) {
     res.render("genre");
   });
 
+  // Load Genre search results
+  app.get("/genre/:search", function(req, res) {
+    db.Song.findAll({
+      where: { genre: req.params.search }
+    }).then(function(dbSong) {
+      res.render("song", {
+        Songs: dbSong
+      });
+    });
+  });
+
+   // Load Key search results
+   app.get("/key/:search", function(req, res) {
+    db.Song.findAll({
+      where: { music_key: req.params.search }
+    }).then(function(dbSong) {
+      res.render("song", {
+        Songs: dbSong
+      });
+    });
+  });
+
   // Load Musical Key Search
   app.get("/key", function(req, res) {
     res.render("key");

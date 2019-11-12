@@ -4,8 +4,9 @@ var $submitBtn = $("#submit");
 var $selectBtn = $(".select");
 var $nameInput = $("#name-input");
 var $nameSubmit = $("#name-submit");
+var $keySearch = $(".key-search");
 
-// Create temp variables
+// Create temp variables to store info for Queue entry
 var name = "";
 var song_id = null;
 
@@ -44,7 +45,7 @@ var queuesAPI = {
       song_id: song_id
     };
     return $.ajax({
-      url: "api/queues" + id,
+      url: "api/queues/" + id,
       type: "POST",
       json: queue
     });
@@ -73,19 +74,31 @@ var handleSearch = function(event) {
     songsAPI.searchArtists(text);
     break;
 
-    // case "genre-text":
-    //   songsAPI.searchGenres(text);
+  case "genre-text":
+    songsAPI.searchGenres(text);
   }
 };
 
 var handleSelection = function(event) {
   event.preventDefault();
 
-  song_id = $selectBtn.attr("id");
+  $(".name-prompt-class").empty();
+
+  song_id = $(this).attr("id");
+
+  var nameSelect = "#name-prompt-" + song_id;
+  $(nameSelect).empty();
 
   var nameInput =
     "<form class='clearfix mb-4'><div class='form-group'><input type='text' id='name-input' class='form-control' placeholder='Enter Your Name'></div><button id='name-submit' class='btn btn-primary float-left'>Submit Your Song to the Queue!</button></form>";
-  $("#name-prompt").append($(nameInput));
+  $(nameSelect).append($(nameInput));
+};
+
+var handleKeySearch = function() {
+  event.preventDefault();
+
+  var key = $(this).attr("id");
+  songsAPI.searchKeys(key);
 };
 
 var handleQueue = function(event) {
@@ -97,9 +110,6 @@ var handleQueue = function(event) {
 
   //queuesAPI.addQueue(name, song_id);
 };
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleSearch);
 
 //Generates the songs to the Queue
 $.get("/api/songs", function(data) {
@@ -122,6 +132,8 @@ $.get("/api/songs", function(data) {
   }
 });
 
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleSearch);
 $selectBtn.on("click", handleSelection);
 $nameSubmit.on("click", handleQueue);
-
+$keySearch.on("click", handleKeySearch);
