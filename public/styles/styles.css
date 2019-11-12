@@ -26,6 +26,9 @@ input[type="text"], textarea, .form-group {
   letter-spacing: 1px;
   line-height: 3;
   text-align: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
 }
 
 .queueDelete {

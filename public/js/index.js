@@ -44,12 +44,12 @@ var handleSearch = function(event) {
 
   switch (type) {
     case "title-text":
-      songsAPI.searchTitles(text);
-      break;
+    songsAPI.searchTitles(text);
+    break;
 
-    case "artist-text":
-      songsAPI.searchArtists(text);
-      break;
+  case "artist-text":
+    songsAPI.searchArtists(text);
+    break;
 
     // case "genre-text":
     //   songsAPI.searchGenres(text);
@@ -63,21 +63,23 @@ var handleSearch = function(event) {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleSearch);
 
+//Generates the songs to the Queue
 $.get("/api/songs", function(data) {
-
   if (data.length !== 0) {
-
     for (var i = 0; i < data.length; i++) {
-
       var row = $("<div>");
       row.addClass("queueList");
 
-      row.append("<p>" + "<b>Song: </b>" + data[i].song + " | <b>Artist: </b>" + data[i].artist + "<button class='queueDelete btn btn-secondary'>Delete</button><hr>");
+      row.append(
+        "<p>" +
+          "<b>Song: </b>" +
+          data[i].song +
+          " | <b>Artist: </b>" +
+          data[i].artist +
+          "<button class='queueDelete btn btn-secondary' id={{this.id}}>Delete</button><hr>"
+      );
 
       $("#queue-area").prepend(row);
-
     }
-
   }
-
 });
