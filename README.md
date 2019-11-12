@@ -14,10 +14,6 @@ We're pretty happy with what we were able to accomplish with our MVP.  Initially
 * _Idea and project management_ - Richard 
 * _front end/back end_ - Tom & James
 
-## Individual Responsibilities.
-Describe what you contributed to the project as an
-individual—in other words, the parts of the project that you were accountable for.
-
 ### Challenges
 The biggest challenge was time.  Standups and daily meetings were minimal due to personal schedules. Luckily, we were able to get in a couple of days in class to work solely on the project. Secondly, we had to keep in mind that 90%+ of the guest singers would be inebriated - so a simple interface was key.  This meant dumbing down the MVP, as evidenced by the lengthy list of future improvements.
 
@@ -26,10 +22,9 @@ The MVP is the framework for a far greater program. Among the things we'd like t
 * incorporate tip to skip
     * hook in Paypal, Venmo et al.  If a user submits an online payment, the MC is alerted and can re-order the queue based on tip amount
     * allow MC to manually enter a tip if paid in cash
-* incorporate user feedback
-    * allow users to submit praise/hate mail about anything (band, program, etc)
-* incorporate Queue View for users.  
-    * As users submit requests, they can see their name/song choice in the queue, and the other queue entries as songs only.
+* authentication
+    * Credentials for dedicated MC control room
+    * Show code credentials for users   
 * Post Show wrap up
     * allow show to be pushed to a show database
     * Date, Venue, songs performed, songs deferred, songs deleted, songs tipped
