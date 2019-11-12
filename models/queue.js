@@ -15,5 +15,13 @@ module.exports = function(sequelize, DataTypes) {
       underscored: true
     }
   );
+
+  // Associate Queue model with Song model; each Queue has a Song
+  Queue.associate = function(models) {
+    // Associate Queue position with a Queue of specific ID
+    Queue.belongsTo(models.Song, {
+      onDelete: "no action"
+    });
+  };
   return Queue;
 };

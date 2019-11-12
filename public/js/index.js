@@ -13,28 +13,16 @@ var song_id = null;
 // The API object contains methods for each kind of request we'll make
 var songsAPI = {
   searchTitles: function(text) {
-    return $.ajax({
-      url: "title/" + text,
-      type: "GET"
-    });
+    window.location.href = "title/" + text;
   },
   searchArtists: function(text) {
-    return $.ajax({
-      url: "artist/" + text,
-      type: "GET"
-    });
+    window.location.href = "artist/" + text;
   },
   searchGenres: function(text) {
-    return $.ajax({
-      url: "genre/" + text,
-      type: "GET"
-    });
+    window.location.href = "genre/" + text;
   },
   searchKeys: function(text) {
-    return $.ajax({
-      url: "key/" + text,
-      type: "GET"
-    });
+    window.location.href = "key/" + text;
   }
 };
 
