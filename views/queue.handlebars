@@ -7,8 +7,8 @@
           <ul id="queue-list" class="list-group">
           {{#each Queues}}
             <li data-id="{{this.id}}" class="list-group-item">
-              {{!-- <p><strong>{{this.song}}</strong> by <strong>{{this.artist}}</strong>, Genre: {{this.genre}}, Musical Key: {{this.music_key}}</p> --}}
               {{this.id}}. {{this.name}} - {{this.queue_state}}
+              <p><strong>{{this.Song.song}}</strong> by <strong>{{this.Song.artist}}</strong>, Genre: {{this.Song.genre}}, Musical Key: {{this.Song.music_key}}</p>
             </li>
           {{/each}}
         </ul>

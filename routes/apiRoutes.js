@@ -22,12 +22,13 @@ module.exports = function(app) {
     });
   });
 
-  //Queue
+  // Queue
   app.get("/api/queue", function(req, res) {
     db.Queue.findAll({}).then(function(dbQueue) {
       res.json(dbQueue);
     });
   });
+
 
   app.delete("/api/queue/:id", function(req, res) {
     // We just have to specify which todo we want to destroy with "where"
@@ -53,6 +54,12 @@ module.exports = function(app) {
     }).then(function(dbQueue) {
       res.json(dbQueue);
     });
+  });
+
+
+  // Add to the Queue
+  app.post("/api/queue", function(req, res) {
+    db.Queue.create(req.body);
   });
 
 };
