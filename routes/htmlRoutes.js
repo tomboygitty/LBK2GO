@@ -74,8 +74,8 @@ module.exports = function(app) {
   // Load all non-completed Queues in Table
   app.get("/queue", function(req, res) {
     db.Queue.findAll({
-      where: { [Op.or]: [ {queue_state: "Active" }, {queue_state: "Queued"} ] }
-    //  include: [db.Song]
+      where: { [Op.or]: [ {queue_state: "Active" }, {queue_state: "Queued"} ] },
+      include: [db.Song]
     }).then(function(dbQueue) {
       res.render("queue", {
         Queues: dbQueue
