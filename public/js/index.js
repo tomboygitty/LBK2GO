@@ -33,10 +33,13 @@ var queuesAPI = {
       song_id: song_id
     };
     return $.ajax({
-      url: "api/queues/" + id,
+      url: "queue",
       type: "POST",
-      json: queue
+      data: queue
     });
+  },
+  getQueue: function() {
+    window.location.href = "/queue";
   }
 };
 
@@ -93,13 +96,21 @@ var handleQueue = function(event) {
   event.preventDefault();
 
   name = $nameInput.val().trim();
+
+  if (!name) {
+    alert("You must enter a name!");
+    return;
+  }
+
   console.log(name);
   console.log(song_id);
 
-  //queuesAPI.addQueue(name, song_id);
+  queuesAPI.addQueue(name, song_id);
+
+  queuesAPI.getQueue();
 };
 
-//Generates the songs to the Queue
+// Generates the songs to the Queue
 $.get("/api/songs", function(data) {
   if (data.length !== 0) {
     for (var i = 0; i < data.length; i++) {

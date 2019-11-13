@@ -22,10 +22,15 @@ module.exports = function(app) {
     });
   });
 
-  //Queue
+  // Queue
   app.get("/api/queue", function(req, res) {
     db.Queue.findAll({}).then(function(dbQueue) {
       res.json(dbQueue);
     });
+  });
+
+  // Add to the Queue
+  app.post("/api/queue", function(req, res) {
+    db.Queue.create(req.body);
   });
 };
