@@ -101,27 +101,30 @@ var handleQueue = function(event) {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleSearch);
 
-//Generates the songs to the Queue
-$.get("/api/songs", function(data) {
-  if (data.length !== 0) {
-    for (var i = 0; i < data.length; i++) {
-      var row = $("<div>");
-      row.addClass("queueList");
+$(document).on("click", "button.queueDelete", deleteSong);
+$(document).on("click", "button.queueUpdate", updateStatus);
 
-      row.append(
-        "<p>" +
-          "<b>Song: </b>" +
-          data[i].song +
-          " | <b>Artist: </b>" +
-          data[i].artist +
-          "<button class='queueDelete btn btn-secondary' id={{this.id}}>Delete</button><hr>"
-      );
+function deleteSong(event) {
+  event.stopPropagation();
+  var id = $(this).data("id");
+  $.ajax({
+    method: "DELETE",
+    url: "/api/queue/" + id
+  }).then(function() {
+    location.reload();
+  });
+};
 
-      $("#queue-area").prepend(row);
-    }
-  }
-});
+function updateStatus(update) {
+  $.ajax({
+    method: "PUT",
+    url: "/api/queue",
+    data: update
+  }).then(function() {
+    location.reload();
+  });
+}
+
 
 $selectBtn.on("click", handleSelection);
 $nameSubmit.on("click", handleQueue);
-

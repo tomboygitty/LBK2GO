@@ -5,8 +5,16 @@
         <img src="../images/LBK2GO_LOGO.png">
         <h1>MC View</h1><br>
         <h2>Queue</h2><br>
-          <div id="queue-area">
-          </div>
+        <div id="queue-area">
+          <ol>
+          {{#each Queues}}
+            <li data-id="{{this.id}}">
+              {{!-- <p><strong>{{this.song}}</strong> by <strong>{{this.artist}}</strong>, Genre: {{this.genre}}, Musical Key: {{this.music_key}}</p> --}}
+              {{this.name}} {{this.artist}} - {{this.queue_state}} <button class="btn btn-secondary queueDelete" data-id="{{this.id}}">Delete</button><hr>
+            </li>
+          {{/each}}
+        </ol>
+        </div>
       </div>
     </div>
   </div>

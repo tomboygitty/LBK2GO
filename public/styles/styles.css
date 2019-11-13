@@ -31,7 +31,7 @@ input[type="text"], textarea, .form-group {
   padding-top: 10px;
 }
 
-.queueDelete {
+.queueDelete, .queueUpdate {
   float: right; 
 }
 
