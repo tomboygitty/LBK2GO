@@ -110,6 +110,35 @@ var handleQueue = function(event) {
   queuesAPI.getQueue();
 };
 
+
+$(document).on("click", "button.queueDelete", deleteSong);
+$(document).on("click", "button.queueUpdate", updateStatus);
+
+function deleteSong(event) {
+  event.stopPropagation();
+  var id = $(this).data("id");
+  $.ajax({
+    method: "DELETE",
+    url: "/api/queue/" + id
+  }).then(function() {
+    location.reload();
+  });
+};
+
+function updateStatus(update) {
+  $.ajax({
+    method: "PUT",
+    url: "/api/queue",
+    data: update
+  }).then(function() {
+    location.reload();
+  });
+}
+
+
+$selectBtn.on("click", handleSelection);
+$nameSubmit.on("click", handleQueue);
+
 // Generates the songs to the Queue
 $.get("/api/songs", function(data) {
   if (data.length !== 0) {
@@ -136,3 +165,4 @@ $submitBtn.on("click", handleSearch);
 $selectBtn.on("click", handleSelection);
 $nameSubmit.on("click", handleQueue);
 $keySearch.on("click", handleKeySearch);
+

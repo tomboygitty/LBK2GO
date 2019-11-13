@@ -100,8 +100,16 @@ module.exports = function(app) {
   // });
 
   app.get("/mc", function(req, res) {
-    res.render("mc");
+    db.Queue.findAll({
+      where: { [Op.or]: [ {queue_state: "Active" }, {queue_state: "Queued"} ] }
+    //  include: [db.Song]
+    }).then(function(dbQueue) {
+      res.render("mc", {
+        Queues: dbQueue
+      });
+    });
   });
+  
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
